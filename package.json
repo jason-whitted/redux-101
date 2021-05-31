@@ -4,11 +4,13 @@
   "private": true,
   "workspaces": [
     "02-app",
-    "03-basics"
+    "03-basics",
+    "04-thunks"
   ],
   "scripts": {
     "start:02": "yarn workspace 02-app start",
-    "start:03": "yarn workspace 03-basics start"
+    "start:03": "yarn workspace 03-basics start",
+    "start:04": "yarn workspace 04-thunks start"
   },
   "dependencies": {}
 }
