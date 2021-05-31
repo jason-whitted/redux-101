@@ -1,16 +1,15 @@
-Prop Drilling sucks
-Distributed state sucks
+# Facts
+Prop Drilling sucks!
 
+Managing distributed state sucks even more!
 
+Redux fixes both of these.
 
-Store
-  getState()
-  dispatch(Action)
-
-
-```bash
-yarn add redux react-redux
-```
-
-```js
-```
+# Agenda:
+Starting with a simple app we are going to:
+- Implement Redux using `redux` and `react-redux`
+- Connect the Redux store to Redux DevTools
+- Create selectors using `reselect`
+- Implement thunks with `redux-thunk`
+- Convert to `@reduxjs/toolkit`
+- Create persistance middleware

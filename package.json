@@ -5,12 +5,14 @@
   "workspaces": [
     "02-app",
     "03-basics",
-    "04-thunks"
+    "04-thunks",
+    "05-toolkit"
   ],
   "scripts": {
     "start:02": "yarn workspace 02-app start",
     "start:03": "yarn workspace 03-basics start",
-    "start:04": "yarn workspace 04-thunks start"
+    "start:04": "yarn workspace 04-thunks start",
+    "start:05": "yarn workspace 05-toolkit start"
   },
   "dependencies": {}
 }
