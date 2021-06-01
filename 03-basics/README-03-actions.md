@@ -1,5 +1,5 @@
 # Actions
-In Redux when we refer to an "action" we typically are NOT referring to the object that sent to dispatch (and subsequently to the reducer).
+In Redux when we refer to an "action" we typically are NOT referring to the object that is sent to dispatch (and subsequently to the reducer).
 
 `{ type: string, payload?: any }`
 
