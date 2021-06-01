@@ -1,6 +1,5 @@
 # Middleware
 
-
 ## Extensibility
 Redux has two different paradigms for modifying the inner workings of the store.
 1. Enhancers - override or replace any of the store's methods: `dispatch`, `getState`, and `subscribe`

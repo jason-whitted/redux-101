@@ -17,7 +17,7 @@ Starting with a simple app we are going to:
 - Create selectors using `reselect`
 - Implement thunks with `redux-thunk`
 - Convert to `@reduxjs/toolkit`
-- Create persistance middleware
+- Create persistence middleware
 
 # Redux
 Redux is built using the FP (functional-programming) paradigm, which assumes some understanding of the following:
