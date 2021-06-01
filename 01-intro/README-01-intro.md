@@ -1,5 +1,8 @@
 # redux-101
 [https://github.com/jason-whitted/redux-101](https://github.com/jason-whitted/redux-101)
+
+This repo uses Yarn.  If you don't have it, I recommend installing yarn 1.x (not 2.x).  When we get to monorepo we will be using it instead of just `npm`.
+
 # Facts
 Prop Drilling sucks!
 
