@@ -146,6 +146,10 @@ reportWebVitals();
 
 That's it.  Now our components all have access to the state store.
 
+`Provider` is simply using React Context under the hood.  This allows you to have access throughout your application without using prop drilling.
+
+The `react-redux` library also provides hooks (`useSelector`, `useDispatch`) for functional components and a HOC (`connect`) for class components to connect to the store.  These helpers will automatically subscribe to the store and cause re-renders when specific data has changed.
+
 # DevTools
 At this point we've created a store, but since we haven't yet created any actions to change the store or selectors to read from the store we don't have "proof" that the store is there.
 

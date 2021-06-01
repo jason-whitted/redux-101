@@ -7,6 +7,25 @@ A "selector" is simply a function used to read data from the store. A selector c
 
 Just like the standard for React hooks is to prefix the hook function with `use`, it's a best practice to prefix your selector functions with `select`.
 
+```js
+// BAD
+const getThing = (state) => state.thing;
+// GOOD
+const selectThing = (state) => state.thing;
+```
+
+```js
+// BAD
+const getThingById = (state, id) =>
+  state.things.find((thing) => thing.id === id);
+// GOOD
+const selectThingById = (id) => (state) =>
+  state.things.find((thing) => thing.id === id);
+// `selectThingById` is not a selector.
+// `selectThingById(id)` is a selector.
+// This is the higher-order selector pattern.
+```
+
 Our `Counter` component is going to need `min`, `max`, and `current` values from the `counter` slice of the state; however, other components may only care about the `current` value.  Let's start by creating two selectors.
 
 ## Selectors: `selectCounter` and `selectCurrentCounter`
@@ -66,7 +85,9 @@ const selectFullName = createSelector(
 );
 ```
 
-There's huge benefit to using `createSelector`.  It utilizes "memoizeOne" memoization -- if you call it with the same state object twice in a row it will just return you the previous result without any recalculation.
+There's huge benefit to using `createSelector`.  It utilizes "memoizeOne" memoization.
+
+> memoizeOne only remembers the latest arguments and result. No need to worry about cache busting mechanisms such as maxAge, maxSize, exclusions and so on, which can be prone to memory leaks. memoizeOne simply remembers the last arguments, and if the function is next called with the same arguments then it returns the previous result.
 
 "Big whoop," you say. Let's give another example.
 

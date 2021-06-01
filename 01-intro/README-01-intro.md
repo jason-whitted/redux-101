@@ -21,6 +21,7 @@ Redux has a fairly steep learning curve with its own vocabulary:
   - `action creator` - A helper function to create an "action" object
   - `action` - An object describing a requested change to the store
   - `dispatch` - A function on the store used to process actions
+  - `higher-order function` - Any function that takes a function as input and/or returns a function as output
   - `reducer` - A function which receives the previous state and an "action" object and returns the updated state
   - `selector` - A helper function for reading data from the state
   - `slice` - Individual branches of the state
