@@ -68,10 +68,10 @@ const slice = createSlice({
   initialState,
   reducers: {
     incrementCounter: (state) => {
-      state.current = Math.max(state.min, state.current - 1);
+      state.current = Math.min(state.max, state.current + 1);
     },
     decrementCounter: (state) => {
-      state.current = Math.min(state.max, state.current + 1);
+      state.current = Math.max(state.min, state.current - 1);
     },
   },
 });

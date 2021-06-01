@@ -6,13 +6,15 @@
     "02-app",
     "03-basics",
     "04-thunks",
-    "05-toolkit"
+    "05-toolkit",
+    "06-middleware"
   ],
   "scripts": {
     "start:02": "yarn workspace 02-app start",
     "start:03": "yarn workspace 03-basics start",
     "start:04": "yarn workspace 04-thunks start",
-    "start:05": "yarn workspace 05-toolkit start"
+    "start:05": "yarn workspace 05-toolkit start",
+    "start:06": "yarn workspace 06-middleware start"
   },
   "dependencies": {}
 }
