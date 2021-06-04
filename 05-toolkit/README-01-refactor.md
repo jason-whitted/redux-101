@@ -67,10 +67,10 @@ const slice = createSlice({
   name: 'counter',
   initialState,
   reducers: {
-    incrementCounter: (state) => {
+    incrementCounter: (state, action) => {
       state.current = Math.min(state.max, state.current + 1);
     },
-    decrementCounter: (state) => {
+    decrementCounter: (state, action) => {
       state.current = Math.max(state.min, state.current - 1);
     },
   },
@@ -87,6 +87,8 @@ Rule #1 in Redux is NEVER mutate the state.  And here in the reducers it looks l
 > doesn't actually mutate the state because it uses the Immer library,<br>
 > which detects changes to a "draft state" and produces a brand new<br>
 > immutable state based off those changes<br>
+
+Also noteworthy is that we aren't specifying a single reducer for the slice.  Previously our reducer was a giant switch block that had all of the business logic in it.  With the toolkit we now can break apart this into micro reducers (nobody calls them that). No more switch statement.  We **could** take this a step further and move each of these micro reducers out to their own file.  They are now little, tiny contained blocks of code (i.e. units) -- which means it's easy to unit test them.
 
 The "slice" is an object that has the resulting `reducer` and also the various action creators.
 

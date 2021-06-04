@@ -6,14 +6,14 @@ A reducer only has access to the current slice's `state` and the `action`.  This
 
 If a reducer wanted to read state from another slice it would need access to `store.getState()`.
 
-If you tried to import the `store` into a reducer you cyclic dependency:
+If we tried to import the `store` into a reducer we would create a cyclic dependency:
 
 > `reducer.js`<br>
 > &gt; `store.js`<br>
 > &gt; `rootReducer.js`<br>
 > &gt; `reducer.js`
 
-You could try to make the store globally accessible so you don't have to worry about cyclic dependencies.
+We could try to make the store globally accessible so we don't have to worry about cyclic dependencies.
 
 ```js
 const store = createStore(...);

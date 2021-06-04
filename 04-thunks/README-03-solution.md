@@ -39,6 +39,17 @@ thunk.withExtraArgument = createThunkMiddleware;
 export default thunk;
 ```
 
+## OK... but WTF is a thunk?
+Previously we only dispatched the result of an action creator:
+
+`(...args) => ({ type: string, payload?: any })`
+
+A thunk lets us dispatch a function instead of an object.  We can dispatch the result of a thunk creator (nobody calls them "thunk creators"):
+
+`(...args) => (dispatch, getState) => { ... }`
+
+A thunk is a function that will receive the store's `dispatch` and `getState` functions. The function body can then interact with the store asynchronously at its leisure.
+
 ## Installation
 
 ```bash
@@ -160,6 +171,19 @@ Now the reducer will know the input parameter (if any) that was passed to the th
 
 Remember when I said an Action has the shape `{ type: string, payload?: any }` -- that is by true, but by convention only.
 
+With our thunks in the mix we could consider an Action to have the shape:
+
+```typescript
+{
+  type: string,
+  payload?: any,
+  meta?: {
+    arg?: any,
+  },
+  error?: any,
+}
+```
+
 Next, we need to update the reducer to handle these new actions.
 
 `src/dogs/reducer/reducer.js`
@@ -238,4 +262,15 @@ Finally, we can update the `Dogs` component to use the `loadBreeds` thunk.
 -        .then((arr) => dispatch(setBreeds(arr)));
 +      dispatch(loadBreeds());
     }, [dispatch]);
+```
+
+Additionally, when you dispatch a thunk you receive the result of the function.  In the case of `loadBreeds` we would receive a `Promise`.  This means we **could** (but won't) use that to handle a loading indicator:
+
+```js
+try {
+  setLoading(true);
+  await dispatch(loadBreeds());
+} finally {
+  setLoading(false);
+}
 ```
