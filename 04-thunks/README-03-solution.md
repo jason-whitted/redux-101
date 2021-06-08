@@ -209,7 +209,7 @@ Next, we need to update the reducer to handle these new actions.
 +     case CONST.DOGS_LOAD_BREEDS_REJECTED:
 +       return {
 +         ...state,
-+         loading: true,
++         loading: false,
 +         error,
 +       };
       case CONST.DOGS_SET_BREEDS:

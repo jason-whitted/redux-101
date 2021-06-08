@@ -1,7 +1,7 @@
 # Redux Toolkit
 
 That was a lot to process.  Redux receives some criticism for a few reasons:
-- Seemingly excessive boilerplate code: constants, reducer, action creators, thunks, selectors.
+- Seemingly excessive boilerplate code: constants, reducers, action creators, thunks, selectors.
 - Confusing configuration: `createStore`, `combineReducers`, `applyMiddleware`, `compose`
 - Multiple libraries: `redux`, `react-redux`, `reselect`, `redux-thunk`
 - Steep learning curve.  Master all of the above before you get started -- otherwise you may end up creating your own middleware to handle async actions!
@@ -78,7 +78,7 @@ const slice = createSlice({
 
 export default slice.reducer;
 
-export const { incrementCount, decrementCounter } = slice.actions;
+export const { incrementCounter, decrementCounter } = slice.actions;
 ```
 
 Rule #1 in Redux is NEVER mutate the state.  And here in the reducers it looks like we are.  The docs clarify this though:
@@ -116,12 +116,14 @@ Refactor `src/store/dogs/thunks.js`
 + import { createAsyncThunk } from '@reduxjs/toolkit';
 
 - export const loadBreeds = (arg) => async (dispatch, getState) => {
-+ export const loadBreeds = createAsyncThunk('loadBreeds', async (payload, { dispatch, getState }) => {
--    try {
--      dispatch({
--        type: CONST.DOGS_LOAD_BREEDS_PENDING,
--        meta: { arg },
--      });
++ export const loadBreeds = createAsyncThunk(
++   'dogs/loadBreeds',
++   async (payload, { dispatch, getState }) => {
+-   try {
+-     dispatch({
+-       type: CONST.DOGS_LOAD_BREEDS_PENDING,
+-       meta: { arg },
+-     });
 -
       const response = await fetch('https://dog.ceo/api/breeds/list/all');
       const json = await response.json();

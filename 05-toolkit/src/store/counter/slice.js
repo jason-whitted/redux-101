@@ -1,17 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 import initialState from './initialState';
+import * as reducers from './reducers';
 
 const slice = createSlice({
   name: 'counter',
   initialState,
-  reducers: {
-    incrementCounter: (state) => {
-      state.current = Math.min(state.max, state.current + 1);
-    },
-    decrementCounter: (state) => {
-      state.current = Math.max(state.min, state.current - 1);
-    },
-  },
+  reducers,
 });
 
 export default slice.reducer;

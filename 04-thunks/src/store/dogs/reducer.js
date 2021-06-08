@@ -18,7 +18,7 @@ export default (state = initialState, { type, payload, meta, error }) => {
     case CONST.DOGS_LOAD_BREEDS_REJECTED:
       return {
         ...state,
-        loading: true,
+        loading: false,
         error,
       };
     case CONST.DOGS_SET_BREEDS:

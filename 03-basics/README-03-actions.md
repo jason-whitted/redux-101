@@ -22,8 +22,8 @@ export const COUNTER_DECREMENT = 'counter/decrement';
 ```js
 import * as CONST from './constants';
 
-export const incrementCount = () => ({ type: CONST.COUNTER_INCREMENT });
-export const decrementCount = () => ({ type: CONST.COUNTER_DECREMENT });
+export const incrementCounter = () => ({ type: CONST.COUNTER_INCREMENT });
+export const decrementCounter = () => ({ type: CONST.COUNTER_DECREMENT });
 ```
 
 `src/store/counter/index.js`
