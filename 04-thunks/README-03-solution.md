@@ -186,7 +186,7 @@ With our thunks in the mix we could consider an Action to have the shape:
 
 Next, we need to update the reducer to handle these new actions.
 
-`src/dogs/reducer/reducer.js`
+`src/store/dogs/reducer.js`
 ```diff
   import * as CONST from './constants';
   import initialState from './initialState';

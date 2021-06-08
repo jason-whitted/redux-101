@@ -63,7 +63,7 @@ export const DOGS_SET_BREEDS = 'dogs/setBreeds';
 export const DOGS_SET_CURRENT_BREED = 'dogs/setCurrentBreed';
 ```
 
-`src/store/counter/actions.js`
+`src/store/dogs/actions.js`
 ```js
 import * as CONST from './constants';
 
@@ -78,14 +78,14 @@ export const setCurrentBreed = (breed) => ({
 });
 ```
 
-`src/store/counter/index.js`
+`src/store/dogs/index.js`
 ```diff
   export { default } from './reducer';
 + export * from './actions';
   export * from './selectors';
 ```
 
-`src/store/counter/reducer.js`
+`src/store/dogs/reducer.js`
 ```diff
 + import * as CONST from './constants';
   import initialState from './initialState';
