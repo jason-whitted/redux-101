@@ -57,7 +57,7 @@ const save = debounce((state) => {
   } catch (error) {
     console.error(error);
   }
-});
+}, 250);
 
 const persist = (store) => (next) => (action) => {
   const result = next(action);
@@ -111,7 +111,7 @@ And configure the store to use this preloadedState during initialization.
 `src/store/store.js`
 ```diff
   import { configureStore } from '@reduxjs/toolkit';
-+ import preloadedState from './perloadedState';
++ import preloadedState from './preloadedState';
   import persist from './persist';
   import counter from './counter';
   import dogs from './dogs';

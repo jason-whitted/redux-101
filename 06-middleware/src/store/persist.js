@@ -12,7 +12,7 @@ const save = debounce((state) => {
   } catch (error) {
     console.error(error);
   }
-});
+}, 250);
 
 const persist = (store) => (next) => (action) => {
   const result = next(action);

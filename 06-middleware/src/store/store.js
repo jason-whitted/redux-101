@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import preloadedState from './perloadedState';
+import preloadedState from './preloadedState';
 import persist from './persist';
 import counter from './counter';
 import dogs from './dogs';

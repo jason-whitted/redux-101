@@ -7,8 +7,10 @@ const Dogs = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(loadBreeds());
-  }, [dispatch]);
+    if (!breeds.length) {
+      dispatch(loadBreeds());
+    }
+  }, [dispatch, breeds]);
 
   const onChange = useCallback(
     (event) => {
