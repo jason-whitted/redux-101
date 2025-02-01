@@ -1,17 +1,21 @@
 # redux-101
+
 [https://github.com/jason-whitted/redux-101](https://github.com/jason-whitted/redux-101)
 
-This repo uses Yarn.  If you don't have it, I recommend installing yarn 1.x (not 2.x).  When we get to monorepo we will be using it instead of just `npm`.
+This repo uses Yarn. If you don't have it, I recommend installing yarn 1.x (not 2.x). When we get to monorepo we will be using it instead of just `npm`.
 
 # Facts
-Prop Drilling sucks!
+
+Prop Drilling sucks!!
 
 Managing distributed state sucks even more!
 
 Redux fixes both of these.
 
 # Agenda:
+
 Starting with a simple app we are going to:
+
 - Implement Redux using `redux` and `react-redux`
 - Connect the Redux store to Redux DevTools
 - Create selectors using `reselect`
@@ -20,24 +24,27 @@ Starting with a simple app we are going to:
 - Create persistence middleware
 
 # Redux
+
 Redux is built using the FP (functional-programming) paradigm, which assumes some understanding of the following:
+
 - `function composition` - Combining two or more functions into a single function
 - `higher-order function` - Any function that takes a function as input and/or returns a function as output
 
 Redux has a fairly steep learning curve with its own vocabulary:
-  - `action creator` - A helper function to create an "action" object
-  - `action` - An object describing a requested change to the store
-  - `dispatch` - A function on the store used to process actions
-  - `reducer` - A function which receives the previous state and an "action" object and returns the updated state
-  - `selector` - A helper function for reading data from the state
-  - `slice` - Individual branches of the state
-  - `state` - The current state
-  - `store` - The public interface which is managing state and dispatching actions to the reducers
-  - `thunk` - An asynchronous action
+
+- `action creator` - A helper function to create an "action" object
+- `action` - An object describing a requested change to the store
+- `dispatch` - A function on the store used to process actions
+- `reducer` - A function which receives the previous state and an "action" object and returns the updated state
+- `selector` - A helper function for reading data from the state
+- `slice` - Individual branches of the state
+- `state` - The current state
+- `store` - The public interface which is managing state and dispatching actions to the reducers
+- `thunk` - An asynchronous action
 
 But under the hood it is composed of very simple concepts that requires you to follow rigid guidelines in order to maintain simplicity.
 
-Simple does not necessarily mean easy.  Some of these concepts are hard initially, but with practice they become easy. Please watch [Simple Made Easy](https://www.infoq.com/presentations/Simple-Made-Easy/) by Rich Hickey for more on this concept. In my opinion this is one of the most important software engineering concepts to understand in order to help write good code.
+Simple does not necessarily mean easy. Some of these concepts are hard initially, but with practice they become easy. Please watch [Simple Made Easy](https://www.infoq.com/presentations/Simple-Made-Easy/) by Rich Hickey for more on this concept. In my opinion this is one of the most important software engineering concepts to understand in order to help write good code.
 
 Redux centralizes your application state into a single, immutable object.
 
@@ -48,6 +55,7 @@ Individual applications can subscribe to the store to receive notification when 
 ![Redux](https://redux.js.org/assets/images/ReduxDataFlowDiagram-49fa8c3968371d9ef6f2a1486bd40a26.gif)
 
 It "simplifies" a system by systematically enforcing:
+
 - immutability
   - mutation is easy
   - managing and reacting to mutation is hard
